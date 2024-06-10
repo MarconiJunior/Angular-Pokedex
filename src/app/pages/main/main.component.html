@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <img src="assets/img/poke_logo.png" alt="poke-logo">
+  <mat-form-field subscriptSizing="dynamic" >
+    <mat-label>Type a pokemon</mat-label>
+    <input type="search" matInput #input (keyup.enter)="search(input.value)">
+    <button mat-icon-button matSuffix (click)="search(input.value)">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</mat-toolbar>
+
+<section class="content">
+  <ol id="pokemonList" class="pokemons" (scroll)="onScroll($event)">
+    @for (pokemon of pokemons; track pokemon) {
+      <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+    }
+  </ol>
+</section>

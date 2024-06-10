@@ -1,0 +1,16 @@
+<div class="modalBody {{ data.types[0].type.name }}" > 
+  <div class="modal-column">
+      <h1 class="pokemon-modal-title">{{ data.name | titlecase }}</h1>
+      <p>Abilities: {{ getAbilities | titlecase }}</p>
+      <p>Weight: {{ data.weight / 10 }} Kg</p>
+      <ol class="modal-types">
+        @for (type of data.types; track type) {
+          <li class="modal-type {{ type.type.name }}">{{ type.type.name | titlecase }}</li>
+        }
+      </ol>
+  </div>
+  <img
+    class="poke-image"
+    [src]="data.sprites.versions['generation-v']['black-white'].animated.front_default"
+    [alt]="data.name">
+</div>
